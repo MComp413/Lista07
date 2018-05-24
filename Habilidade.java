@@ -1,6 +1,7 @@
 package EP;
 
-public class Habilidade extends Acao{
+public class Habilidade {
+	private boolean ready;
 	private final String tipo;
 	private String nome;
 	private double baseDmg;
@@ -17,6 +18,9 @@ public class Habilidade extends Acao{
 	
 	public boolean isReady() {
 		return System.currentTimeMillis() >= coolOff;
+	}
+	public boolean getReady() {
+		return ready;
 	}
 	
 	public long getCoolOff() {
