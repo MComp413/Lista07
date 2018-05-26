@@ -6,6 +6,7 @@ public class Ser {
 	private String especie;
 	private int idade;
 	private Planeta planetaNatal;
+	private double HP;
 	
 	public String getEspecie() {
 		return especie;
@@ -36,5 +37,11 @@ public class Ser {
 	}
 	public void setPlanetaNatal(Planeta planetaNatal) {
 		this.planetaNatal = planetaNatal;
+	}
+	public double getHP() {
+		return HP;
+	}
+	public void setHP(double hp) {
+		this.HP = hp;
 	}
 }
