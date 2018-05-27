@@ -6,10 +6,10 @@ public class Habilidade {
 	private String nome;
 	private double baseDmg;
 	private String descricao;
-	private long cooldown;
-	private long coolOff = 0;
+	private int cooldown;
+	private int coolOff = 0;
 	
-	Habilidade(String nome, String tipo, double baseDmg, long cooldown){
+	Habilidade(String nome, String tipo, double baseDmg, int cooldown){
 		this.setCooldown(cooldown);
 		this.tipo = tipo;
 		this.setNome(nome);
@@ -17,17 +17,21 @@ public class Habilidade {
 	}
 	
 	public boolean isReady() {
-		return System.currentTimeMillis() >= coolOff;
+		return (this.coolOff == 0);
 	}
 	public boolean getReady() {
 		return ready;
 	}
 	
-	public long getCoolOff() {
+	public int getCoolOff() {
 		return coolOff;
 	}
-	public void setCoolOff() {
-		this.coolOff = cooldown + System.currentTimeMillis();
+	public void reduzCoolOff() {
+		if (this.coolOff > 0)
+			this.coolOff = this.coolOff - 1;
+	}
+	public void setCoolOff(int co) {
+		this.coolOff = co;
 	}
 	public String getNome() {
 		return nome;
@@ -50,10 +54,10 @@ public class Habilidade {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	public long getCooldown() {
+	public int getCooldown() {
 		return cooldown;
 	}
-	public void setCooldown(long cooldown) {
+	public void setCooldown(int cooldown) {
 		this.cooldown = cooldown;
 	}
 }
